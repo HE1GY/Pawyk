@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Serialization;
 
 namespace Spider
 {
@@ -12,15 +14,16 @@ namespace Spider
         [SerializeField] private float _distanceToMove;
         [SerializeField] private float _speed;
         [SerializeField] private Animator _animator;
-        
+        [SerializeField] private SpiderMover _spiderMover;
 
-
+        private bool _isMove;
         private Transform _ikTarget;
         private Vector3 _targetPosition;
         private Vector3 _currentPosition;
-        private bool _move;
         private float _currentPointOnWay;
         private Vector3 _startPos;
+
+        [SerializeField]private float _moveOffset;
 
 
         private void Awake()
@@ -30,26 +33,29 @@ namespace Spider
 
         private void Start()
         {
-            _currentPosition=_rayThrower.HitPosition;
+            _currentPosition=_ikTarget.position;
         }
 
         private void Update()
         {
-            _targetPosition = _rayThrower.HitPosition;
             HandleMove();
         }
 
         private void HandleMove()
         {
-            float distance= Vector3.Distance(_ikTarget.position, _targetPosition);
-            if (distance > _distanceToMove&&!_move)
+            float distance= Vector3.Distance(_ikTarget.position, _rayThrower.HitPosition);
+            if (distance > _distanceToMove&&!_isMove)
             {
                 _animator.SetTrigger("Move");
-                _move = true;
+                _isMove = true;
                 _startPos = _currentPosition;
-
+                _targetPosition = _rayThrower.HitPosition;
+                if (Vector3.Angle(_targetPosition - _startPos, _spiderMover.MoveDirection) < 30)
+                {
+                    _targetPosition +=_spiderMover.MoveDirection;
+                }
             }
-            else if (_move)
+            else if (_isMove)
             {
                 Move();
             }
@@ -61,12 +67,12 @@ namespace Spider
 
         private  void Move()
         {
-            _ikTarget.position= Vector3.Lerp(_startPos, _targetPosition, _currentPointOnWay);
+            _ikTarget.position= Vector3.Lerp( _startPos, _targetPosition, _currentPointOnWay);
             _currentPointOnWay += Time.deltaTime * _speed;
             if (_currentPointOnWay >= 1)
             {
                 _currentPointOnWay = 0;
-                _move = false;
+                _isMove = false;
                 _currentPosition = _targetPosition;
             }
             

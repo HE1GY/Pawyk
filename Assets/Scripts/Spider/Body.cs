@@ -6,10 +6,10 @@ namespace Spider
 {
     public class Body : MonoBehaviour
     {
-         [SerializeField] private Transform[] _legTargets;
+         [SerializeField] private Transform[] _legTips;
 
 
-        private void Update()
+         private void Update()
         {
             HandleRotation();
         }
@@ -17,11 +17,12 @@ namespace Spider
 
         private void HandleRotation()
         {
-            Vector3 pairLegs1 = _legTargets[3].position - _legTargets[0].position;
-            Vector3 pairLegs2 = _legTargets[2].position - _legTargets[1].position;
+            Vector3 pairLegs1 = _legTips[3].position - _legTips[0].position;
+            Vector3 pairLegs2 = _legTips[2].position - _legTips[1].position;
 
             transform.up = Vector3.Cross(pairLegs1, pairLegs2);
 
         }
+        
     }
 }

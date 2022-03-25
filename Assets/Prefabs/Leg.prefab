@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1693217493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693217494}
+  - component: {fileID: 4905261797610309193}
+  m_Layer: 0
+  m_Name: Hint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693217494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693217493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.008, y: -0.265, z: 0.698}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4400847870132113688}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1773428102 &4905261797610309193
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693217493}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: -0.008, y: -0.265, z: 0.698}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0.8808459, y: -0.39200002, z: 0.9413389}
+  m_RotationOffsets:
+  - {x: 0, y: 45.570045, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 0}
+    weight: 1
 --- !u!1 &4400847869172820564
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400847869819655889}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.26000002, y: -0.02940005, z: 0.19390011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -256,9 +313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rayThrower: {fileID: 0}
   _rig: {fileID: 4400847870132113687}
-  _distanceToMove: 0.4
-  _speed: 2
-  _move: 0
+  _distanceToMove: 0.5
+  _speed: 10
+  _animator: {fileID: 2073317119653915535}
 --- !u!95 &2073317119653915535
 Animator:
   serializedVersion: 3
@@ -269,7 +326,7 @@ Animator:
   m_GameObject: {fileID: 4400847869819655889}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e4e8d319d89c6941a5d20fdff25d2ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -309,6 +366,7 @@ Transform:
   - {fileID: 4400847869172820563}
   - {fileID: 4400847870396330536}
   - {fileID: 4400847870789186185}
+  - {fileID: 1693217494}
   m_Father: {fileID: 4400847869819655888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,7 +473,7 @@ MonoBehaviour:
     m_Mid: {fileID: 4400847869565330321}
     m_Tip: {fileID: 4400847870461515945}
     m_Target: {fileID: 4400847870789186185}
-    m_Hint: {fileID: 0}
+    m_Hint: {fileID: 1693217494}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
     m_HintWeight: 1
@@ -603,8 +661,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400847870789186186}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.53069997, z: 0.5260997}
+  m_LocalRotation: {x: -0.61825615, y: 0.00010392068, z: -0.000023946162, w: 0.78597665}
+  m_LocalPosition: {x: -0.000040322542, y: -0.57757825, z: 0.3682854}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4400847870132113688}
